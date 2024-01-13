@@ -1,7 +1,5 @@
 import { HttpException } from "@nestjs/common";
 
-//https://velog.io/@cataiden/nestjs-custom-exception
-
 export class BaseException extends HttpException {
   constructor(errorCode: string, statusCode: number) {
       super(errorCode, statusCode);

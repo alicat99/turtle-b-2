@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PostgreSQLConfigProvider } from './config/typeorm.config';
 
 //typeorm: https://velog.io/@fj2008/TypeORM-9275rvl9
+//exception: https://velog.io/@cataiden/nestjs-custom-exception
 
 @Module({
   imports: [
