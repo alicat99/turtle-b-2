@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { TempEntity } from './entity/tempEntity.entity';
 import { Repository } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
+import { TempException } from 'src/exception/temp/temp.exception';
 
 @Controller('temp')
 export class TempController {
@@ -12,13 +13,18 @@ export class TempController {
 
   @Get('data')
   async getData(): Promise<any> {
-    const data = await this.tempRepository.find()
-    return data
+    const data = await this.tempRepository.find();
+    return data;
   }
 
   @Get('config')
   getConfig(): number {
-    const n = this.configService.get<number>('TEST', 0)
-    return n
+    const n = this.configService.get<number>('TEST', 0);
+    return n;
+  }
+
+  @Get('exception')
+  getException(): never {
+    throw new TempException();
   }
 }
